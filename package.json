@@ -1,0 +1,22 @@
+{
+  "name": "vjezba7wt",
+  "version": "1.0.0",
+  "description": "Vježba 7 - Povezivanje frontend-a i backend-a\r U prethodnoj vježbi smo vidjeli kako je moguće napraviti server koji će osluškivati zahtjeve od klijenta. Kada klijent uputi zahtjev na neki endpoint (url) potrebno je da se desi neka akcija te da server pošalje klijentu odgovarajući odgovor. Proces određivanja kako će skripta odgovoriti u zavisnosti na koji endpoint je zahtjev došao zove se rutiranje. Rutiranje u običnoj Node skripti zna biti dosta naporno (prošla vježba) zbog toga ćemo koristiti express framework u svrhe rutiranja zahtjeva. \r Express uključujemo kao i dosadašnje pakete. Uključeni modul pozovemo kako bi dobili našu instancu aplikacije. Rutiranje se radi na način app.METODA(PUTANJA,FUNKCIJA), gdje je app instanca express aplikacije, METODA je HTTP metoda, PUTANJA je path dio url-a na koji se zahtjev šalje i FUNKCIJA je funkcija koja se detektuje ovakav zahtjev. Parametri FUNKCIJA su request i response objekti.",
+  "main": "primjer1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muhamed-droid/Vjezba7WT.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/muhamed-droid/Vjezba7WT/issues"
+  },
+  "homepage": "https://github.com/muhamed-droid/Vjezba7WT#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

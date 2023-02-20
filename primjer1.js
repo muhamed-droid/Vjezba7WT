@@ -5,6 +5,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
 app.post('/',function(req,res){
    let tijelo = req.body;
    let novaLinija = "\n"+tijelo['ime']+","+tijelo['prezime']+
@@ -16,3 +17,14 @@ app.post('/',function(req,res){
 });
 app.listen(8085);
 
+app.get('/unos', (req, res) => {
+    res.sendFile(path.join(__dirname, 'forma.html'));
+});
+
+app.post('/unos', (req, res) => {
+    res.send("http://localhost:8085/unos");
+});
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'ispis.html'));
+});

@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<HTML lang="en">
+
+<HEAD>
+  <TITLE>Zadatak1</TITLE>
+</HEAD>
+
+<BODY>
+
+  <script>
+    window.onload = function pozovi() {
+
+      var xhttp = new XMLHttpRequest();
+      const url = "http://localhost:8085/tabela";
+      xhttp.open("GET", url, true);
+
+      xhttp.setRequestHeader("Content-Type", "application/json");
+
+      xhttp.onreadystatechange = function () {
+        if (xhttp.readyState === 4 && xhttp.status === 200) {
+          var json = JSON.parse(xhttp.responseText);
+
+       
+          tabela = document.createElement("table");
+        
+          row = document.createElement("tr");
+
+          kolona = document.createElement("th");
+          kolonaText = document.createTextNode("Ime");
+          kolona.appendChild(kolonaText);            // dodaj text(ime)
+          row.appendChild(kolona);
+
+          kolona2 = document.createElement("th");
+          kolonaText2 = document.createTextNode("Prezime");
+          kolona2.appendChild(kolonaText2);
+          row.appendChild(kolona2);
+
+          kolona3 = document.createElement("th");
+          kolonaText3 = document.createTextNode("Adresa");
+          kolona3.appendChild(kolonaText3);
+          row.appendChild(kolona3);
+
+          kolona4 = document.createElement("th");
+          kolonaText4 = document.createTextNode("Broj telefona");
+          kolona4.appendChild(kolonaText4);
+          row.appendChild(kolona4);
+
+          tabela.appendChild(row);         // Prvi red
+
+
+          for (let i = 0; i < json.length ; i++) {
+            row = document.createElement("tr");
+
+            kolona = document.createElement("td");
+            kolonaText = document.createTextNode(json[i].ime);
+            kolona.appendChild(kolonaText);
+            row.appendChild(kolona);
+
+            kolona2 = document.createElement("td");
+            kolonaText2 = document.createTextNode(json[i].prezime);
+            kolona2.appendChild(kolonaText2);
+            row.appendChild(kolona2);
+
+            kolona3 = document.createElement("td");
+            kolonaText3 = document.createTextNode(json[i].adresa);
+            kolona3.appendChild(kolonaText3);
+            row.appendChild(kolona3);
+
+            kolona4 = document.createElement("td");
+            kolonaText4 = document.createTextNode(json[i].broj_telefona);
+            kolona4.appendChild(kolonaText4);
+            row.appendChild(kolona4);
+            
+            tabela.appendChild(row);
+
+          }
+          document.querySelector("body").appendChild(tabela);
+        }
+      };
+      xhttp.send();
+    }
+  </script>
+ 
+</BODY>
+
+</HTML>
